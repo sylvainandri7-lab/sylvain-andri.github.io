@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sylvain Andrianirina, développeur web à Fianarantsoa</title>
+<meta name="description" content="Développeur full-stack JavaScript à Fianarantsoa. Sites vitrines et applications de gestion avec React.js, Node.js et MySQL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F1F4F2;--surf:#fff;--ink:#0C2B2C;--mut:#4F6666;--line:#D3DCD8;--acc:#F2B01E;--on:#0C2B2C;--brand:#0F6B63;--soft:#E2EAE6;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#081A1B;--surf:#0F2829;--ink:#EAF3F0;--mut:#9DB5B1;--line:#1F3B3C;--on:#081A1B;--brand:#5CD1C2;--soft:#133031;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#081A1B;--surf:#0F2829;--ink:#EAF3F0;--mut:#9DB5B1;--line:#1F3B3C;--on:#081A1B;--brand:#5CD1C2;--soft:#133031;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 "Figtree",system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Figtree",system-ui,sans-serif;margin:0;letter-spacing:-.025em;line-height:1.02}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+header .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:22px;padding-bottom:6px}
+.brand{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:19px;text-decoration:none}
+nav{display:flex;gap:22px;font-weight:500;font-size:15px}
+nav a{text-decoration:none;color:var(--mut)}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.p{background:var(--acc);border-color:var(--acc);color:var(--on)}
+.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center;padding:64px 22px 76px}
+.pill{display:inline-flex;align-items:center;gap:10px;background:var(--soft);padding:8px 16px;border-radius:999px;font-size:14px;font-weight:500;margin-bottom:26px}
+.pill i{width:9px;height:9px;border-radius:50%;background:#2DBE6C;box-shadow:0 0 0 4px rgba(45,190,108,.25)}
+h1{font-size:clamp(40px,7vw,78px);font-weight:800}
+.hero p.lead{max-width:34em;margin:26px 0 34px;font-size:19px;color:var(--mut)}
+.lead b{color:var(--ink);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.quote{background:var(--surf);border:1.5px solid var(--ink);border-radius:26px 26px 26px 6px;padding:22px;box-shadow:10px 10px 0 var(--acc);transform:rotate(1.6deg)}
+.quote h3{font-size:21px;margin-bottom:14px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--line);font-size:15px}
+.tag{font-size:12.5px;font-weight:600;padding:4px 11px;border-radius:999px;background:var(--soft);white-space:nowrap}
+.tag.ok{background:var(--brand);color:var(--bg)}
+.cap{font-size:12.5px;color:var(--mut);margin-top:12px}
+section{padding:72px 0;border-top:1.5px solid var(--ink)}
+h2{font-size:clamp(30px,4.4vw,48px);font-weight:800;max-width:15em;margin-bottom:38px}
+.svc{display:grid;grid-template-columns:.8fr 1.2fr;gap:8px 40px;padding:26px 0;border-top:1px solid var(--line)}
+.svc h3{font-size:24px}
+.svc p{color:var(--mut);max-width:36em}
+.proj{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.card{grid-column:span 4;background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.card h3{font-size:22px}
+.card p{color:var(--mut);font-size:15.5px}
+.card small{margin-top:auto;padding-top:10px;font-weight:600;color:var(--brand);font-size:14px}
+.card.big{grid-column:span 12;background:var(--ink);color:var(--bg);border-radius:30px;padding:36px;border:0}
+.card.big p{color:inherit;opacity:.82;max-width:40em;font-size:18px}
+.card.big small{color:var(--acc)}
+.card.big h3{font-size:clamp(28px,4vw,42px)}
+.card.w{grid-column:span 6}
+.stack div{display:grid;grid-template-columns:.8fr 1.2fr;gap:8px 40px;padding:16px 0;border-top:1px solid var(--line)}
+.stack b{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:19px}
+.stack span{color:var(--mut)}
+ol{list-style:none;margin:0;padding:0 0 0 26px;border-left:3px solid var(--acc)}
+ol li{position:relative;padding:0 0 30px 14px}
+ol li::before{content:"";position:absolute;left:-36px;top:7px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:3px solid var(--ink)}
+ol time{font-weight:600;color:var(--brand)}
+ol h3{font-size:21px;margin:2px 0 4px}
+ol p{color:var(--mut)}
+.end{background:var(--acc);color:var(--on);border-radius:34px;padding:clamp(30px,6vw,64px);margin-bottom:34px}
+.end h2{max-width:11em;margin-bottom:18px}
+.end p{max-width:32em;margin-bottom:28px;font-size:19px}
+.end .btn{border-color:var(--on);color:var(--on)}
+.end .btn.p{background:var(--on);color:var(--acc)}
+footer{padding:10px 0 34px;color:var(--mut);font-size:14px}
+@media(max-width:780px){
+.hero{grid-template-columns:1fr;gap:44px;padding-top:40px}
+.svc,.stack div{grid-template-columns:1fr}
+.card,.card.w{grid-column:span 12}
+nav a:not(:last-child){display:none}
+.quote{transform:none}
+}
+@media(prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="#">Sylvain Andrianirina</a>
+<nav><a href="#services">Services</a><a href="#projets">Projets</a><a href="#parcours">Parcours</a><a href="#contact">Me contacter</a></nav></div></header>
+<main>
+<div class="wrap hero">
+<div>
+<span class="pill"><i></i>Disponible immédiatement à Fianarantsoa</span>
+<h1>Votre gestion, enfin dans une application qui marche.</h1>
+<p class="lead">Je suis Sylvain, développeur full-stack. Je crée des <b>sites vitrines</b> et des <b>applications de gestion</b> pour les petites entreprises : clients, devis, stock, ventes. Avec React.js, Node.js et MySQL.</p>
+<div class="cta"><a class="btn p" href="https://wa.me/261347698779">Écrire sur WhatsApp</a><a class="btn" href="mailto:sylvain.andri7@gmail.com">Envoyer un e-mail</a></div>
+</div>
+<div class="quote" role="img" aria-label="Exemple illustratif de suivi des clients">
+<h3>Suivi des clients</h3>
+<div class="row"><span>Boutique Soa</span><span class="tag">Devis envoyé</span></div>
+<div class="row"><span>Hôtel Vanille</span><span class="tag ok">Accepté</span></div>
+<div class="row"><span>Épicerie Tiana</span><span class="tag">En cours</span></div>
+<p class="cap">Exemple illustratif, inspiré de ma plateforme EspaceClient_Tsikidia.</p>
+</div>
+</div>
+
+<section id="services"><div class="wrap">
+<h2>Ce que je peux faire pour vous</h2>
+<div class="svc"><h3>Un site pour être trouvé</h3><p>Un site vitrine rapide, lisible sur téléphone, avec vos horaires, vos produits et un bouton pour vous écrire directement sur WhatsApp.</p></div>
+<div class="svc"><h3>Une application pour votre gestion</h3><p>Clients, devis, stock, ventes, congés du personnel : vos données sont saisies une fois, stockées dans une base et retrouvées en quelques secondes.</p></div>
+<div class="svc"><h3>Des données propres</h3><p>Saisie et vérification sous Excel, Access ou SQL : je repère les doublons, les informations manquantes et les écarts avant qu’ils vous coûtent de l’argent.</p></div>
+<div class="svc"><h3>Des formulaires fiables</h3><p>Formulaires web avec validations, pour collecter des informations sans erreurs de saisie, avec des comptes et des droits d’accès par utilisateur.</p></div>
+</div></section>
+
+<section id="projets"><div class="wrap">
+<h2>Des projets que j’ai réellement construits</h2>
+<div class="proj">
+<article class="card big"><h3>EspaceClient_Tsikidia</h3><p>Plateforme de gestion des clients et de devis personnalisés. Conception complète : formulaires, base de données, saisie, stockage et exploitation des données.</p><small>React.js, Node.js, MySQL. Stage chez Spray-Info, 2025</small></article>
+<article class="card"><h3>Gestion de congés</h3><p>Suivi des demandes et des absences du personnel d’une structure.</p><small>JavaScript</small></article>
+<article class="card"><h3>Gestion de ventes</h3><p>Enregistrement des ventes et suivi de l’activité commerciale.</p><small>PHP, Java, C#</small></article>
+<article class="card"><h3>Gestion de bibliothèque</h3><p>Livres, emprunts et retours dans une application de bureau.</p><small>Java</small></article>
+<article class="card w"><h3>Événements scientifiques</h3><p>Site web dynamique pour présenter et gérer des événements scientifiques.</p><small>PHP</small></article>
+<article class="card w"><h3>Réseau et messagerie</h3><p>Routage dynamique et serveur de messagerie dans un environnement réseau complet.</p><small>RIP, OSPF, Windows Server</small></article>
+</div></div></section>
+
+<section><div class="wrap">
+<h2>Mes outils</h2>
+<div class="stack">
+<div><b>Interface</b><span>React.js, HTML5, CSS3, Tailwind CSS</span></div>
+<div><b>Serveur</b><span>Node.js, Express.js, API REST</span></div>
+<div><b>Données</b><span>MySQL, PostgreSQL, MS Access, SQL</span></div>
+<div><b>Systèmes et outils</b><span>Windows Server, Linux, Git, GitHub, Visual Paradigm, VirtualBox</span></div>
+</div></div></section>
+
+<section id="parcours"><div class="wrap">
+<h2>Mon parcours</h2>
+<ol>
+<li><time>2026</time><h3>Stage en gestion de stock</h3><p>Tranombarotra TKV, 5 mois : entrées et sorties, inventaire et rapports d’activité sous Excel.</p></li>
+<li><time>2025</time><h3>Stage de développeur web</h3><p>Spray-Info, 3 mois : plateforme EspaceClient_Tsikidia. La même année, Licence en Informatique à l’EMIT, mention Très Bien.</p></li>
+<li><time>2024</time><h3>Stage en réseaux</h3><p>Spray-Info, 2 mois : authentification centralisée, comptes et droits d’accès, configuration de Windows Server.</p></li>
+</ol>
+<p style="margin-top:6px;color:var(--mut)">Langues : malagasy (maternelle), français (courant), anglais (intermédiaire).</p>
+</div></section>
+
+<section id="contact" style="border-top:0;padding-top:20px"><div class="wrap">
+<div class="end">
+<h2>Parlons de votre projet.</h2>
+<p>Dites-moi ce que vous voulez simplifier dans votre activité. Je vous réponds avec une proposition claire.</p>
+<div class="cta"><a class="btn p" href="https://wa.me/261347698779">WhatsApp, +261 34 76 987 79</a><a class="btn" href="mailto:sylvain.andri7@gmail.com">sylvain.andri7@gmail.com</a></div>
+</div>
+</div></section>
+</main>
+<footer><div class="wrap">Sylvain Andrianirina, Fianarantsoa, Madagascar</div></footer>
+</body>
+</html>
